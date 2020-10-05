@@ -12,9 +12,9 @@ public class NodeUtil {
         Node cur = head;
         for (int i = 1; i <= n; i++) {
             tmp = new Node();
-            tmp.setItem(i);
-            tmp.setNext(null);
-            cur.setNext(tmp);
+            tmp.item = i;
+            tmp.next = null;
+            cur.next = tmp;
             cur = tmp;
         }
 
@@ -25,8 +25,8 @@ public class NodeUtil {
     public static void print(Node head) {
 
         Node cur = head;
-        for (cur = head.getNext(); cur != null; cur = cur.getNext()) {
-            System.out.print(cur.getItem() + "->");
+        for (cur = head.next; cur != null; cur = cur.next) {
+            System.out.print(cur.item + "->");
         }
     }
 }

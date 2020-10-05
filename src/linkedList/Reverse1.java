@@ -8,7 +8,7 @@ package linkedList;
 public class Reverse1 {
 
     private void reverse(Node head){
-        if(head==null||head.getNext()==null){
+        if(head==null||head.next==null){
             return ;
         }
         /**
@@ -18,13 +18,13 @@ public class Reverse1 {
          * 3.将头节点的引用置为节点2
          * 4.
          */
-        Node cur=head.getNext().getNext();
-        head.getNext().setNext(null);
+        Node cur=head.next.next;
+        head.next.next=null;
         Node next;
         while (cur!=null){
-            next=cur.getNext();
-            cur.setNext(head.getNext());
-            head.setNext(cur);
+            next=cur.next;
+            cur.next=head.next;
+            head.next=cur;
             cur=next;
         }
     }
