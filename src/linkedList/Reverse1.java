@@ -35,11 +35,15 @@ public class Reverse1 {
      * 2.让第一个节点指向前面的节点，第一次即是节点最后
      * 3.更新pre节点为第一个节点，head赋值给pre
      * 4.循环迭代
+     *
+     * 注意：最后返回的是pre，最后的pre是开始链表的最后一个结点，即是逆转后的第一个结点
      * @param head
      * @return
      */
     private Node reverseWithoutHead(Node head){
-        if(head==null){
+
+        // 判断链表为空或长度为1的情况
+        if(head==null|| head.next == null){
             return head;
         }
 
@@ -53,6 +57,7 @@ public class Reverse1 {
         }
         return pre;
     }
+
 
     public static void main(String[] args) {
 
