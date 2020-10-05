@@ -10,5 +10,9 @@ public class Node {
     Integer item;
     Node next;
 
+    public Node(){};
 
+    public Node(int item) {
+        this.item = item;
+    }
 }

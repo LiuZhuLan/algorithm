@@ -29,13 +29,47 @@ public class Reverse1 {
         }
     }
 
+    /**
+     * 核心：让第一个节点去和最后的null连接，然后依次迭代
+     * 1.先保存第二个节点
+     * 2.让第一个节点指向前面的节点，第一次即是节点最后
+     * 3.更新pre节点为第一个节点，head赋值给pre
+     * 4.循环迭代
+     * @param head
+     * @return
+     */
+    private Node reverseWithoutHead(Node head){
+        if(head==null){
+            return head;
+        }
+
+        Node pre=null;
+        Node next;
+        while (head!=null){
+            next=head.next;
+            head.next=pre;
+            pre=head;
+            head=next;
+        }
+        return pre;
+    }
 
     public static void main(String[] args) {
-        Node head = NodeUtil.build(5);
-        NodeUtil.print(head);
+
+        //带有头节点的链表反转
+        Node head = NodeUtil.buildWithHead(5);
+        NodeUtil.printWithHead(head);
         System.out.println();
         Reverse1 reverse1=new Reverse1();
         reverse1.reverse(head);
-        NodeUtil.print(head);
+        NodeUtil.printWithHead(head);
+
+        //不带头节点的链表反转
+        System.out.println();
+        Node head1 = NodeUtil.buildWithoutHead(5);
+        NodeUtil.printWithoutHead(head1);
+        System.out.println();
+        Node node = reverse1.reverseWithoutHead(head1);
+        NodeUtil.printWithoutHead(node);
     }
 }
