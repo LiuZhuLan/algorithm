@@ -44,6 +44,19 @@ public class NodeUtil {
 
     }
 
+    public static Node buildWithoutHead(int l,int r) {
+        //首先初始化第一个结点
+        Node head = new Node(l);
+        Node cur = head;
+        for (int i = l+1; i <= r; i++) {
+            cur.next=new Node(i);
+            cur=cur.next;
+        }
+
+        return head;
+
+    }
+
 
     public static void printWithHead(Node head) {
 
