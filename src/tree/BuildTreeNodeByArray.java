@@ -21,5 +21,8 @@ public class BuildTreeNodeByArray {
 
     }
 
-
+    public static TreeNode buildSimpleTree(){
+        int[] arr={3,9,10,20,15,7};
+        return BuildTreeNodeByArray.build(arr, 0, arr.length - 1);
+    }
 }
